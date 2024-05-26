@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przelicznik ceny</title>
+
+    <style>
+        header, h2 {
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb); 
+            color: rgb(0, 0, 0);
+            text-align: center;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+        }
+        .nazwaKlasy{
+            background-color: black;
+            color: white;
+        }
+
+        header {
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+            color: #000;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        article {
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(to right, #64dd17, #00bfa5);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        select, input[type="checkbox"], button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #wynik {
+            margin-top: 20px;
+            border-radius: 5px;
+            background-color: rgb(41, 148, 25);
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="style/styl.css"> 
+</head>
+<body>
+    <header>
+        <h1>Przelicznik ceny </h1>
+    </header>
+    <nav>
+        <h2>Menu</h2>
+        <ul>
+            <li> <a href="index.html"> Strona główna </a> </li>
+            <li><a href="Najlepsze filmy prezentacja.html">Najlepsze filmy</a></li>
+            <li><a href="nowosci.html">Nowości</a></li>
+            <li><a href="repertuar.html">Repertuar</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="Promocje_konkursy.html">Promocje i konkursy</a></li>
+            <li><a href="przelicznik.html">Przelicznik godzin</a></li>
+            <li><a href="przelicznik2.html">Przekicznik cen</a></li>
+            <li><a href="ceny.html">Ceny</a></li>
+            <li><a href="Rysuj.html">Rysuj</a></li>
+            <li><a href="map.html">Plan kina</a></li>
+        </ul>
+    </nav>
+    <article>
+        <h2>Przelicznik ceny </h2>
+        <form id="cinemaCostCalculator">
+            <label for="film">Wybierz film:</label>
+            <select id="film">
+                <option value="18">"Powrót do przyszłości" - 18 zł</option>
+                <option value="18">"Dwunastu gniewnych ludzi" - 18 zł</option>
+                <option value="18">"Lot nad kukułczym gniazdem" - 18 zł</option>
+                <option value="18">"Lśnienie" - 18 zł</option>
+                <option value="18">"Taksówkarz" - 18 zł</option>
+                <option value="18">"Zielona mila" - 18 zł</option>
+                <option value="18">"Django" - 18 zł</option>
+                <option value="18">"Człowiek z blizną" - 18 zł</option>
+                <option value="18">"Adwokat diabła" - 18 zł</option>
+                <option value="18"> "Milczenie owiec" - 18 zł</option>
+                <option value="18"> "Czerwony smok" - 18 zł</option>
+            </select>
+
+            <label for="dzien_tygodnia">Wybierz dzień tygodnia:</label>
+            <select id="dzien_tygodnia">
+                <option value="1">Poniedziałek</option>
+                <option value="1.1">Wtorek (10% drożej)</option>
+                <option value="1.2">Środa (20% drożej)</option>
+                <option value="1.3">Czwartek (30% drożej)</option>
+                <option value="1.5">Piątek (50% drożej)</option>
+                <option value="2">Sobota (100% drożej)</option>
+                <option value="2">Niedziela (100% drożej)</option>
+            </select>
+
+            <label for="ilosc_osob">Ilość osób:</label>
+            <select id="ilosc_osob">
+                <option value="1">1 osoba</option>
+                <option value="2">2 osoby</option>
+            </select>
+
+            <label for="popcorn">Z popcornem (+10 zł)</label>
+            <input type="checkbox" id="popcorn"><br>
+            
+            <label for="napoj">Z napojem (+11 zł)</label>
+            <input type="checkbox" id="napoj"><br>
+            
+            <label for="chipsy">Z chipsami (+12 zł)</label>
+            <input type="checkbox" id="chipsy"><br>
+            
+            <label for="okulary">Z okularami 3D (+20 zł)</label>
+            <input type="checkbox" id="okulary"><br>
+            
+            <label for="toaleta">Z kodem do toalety (+8 zł)</label>
+            <input type="checkbox" id="toaleta"><br>
+
+            <button type="button" onclick="obliczCene()">Oblicz cenę</button>
+        </form>
+
+        <p id="wynik">Całkowita kwota: 0 zł</p>
+
+        <script>
+            function obliczCene() {
+                const filmCena = parseFloat(document.getElementById('film').value);
+                const dzienTygodnia = parseFloat(document.getElementById('dzien_tygodnia').value);
+                const iloscOsob = parseFloat(document.getElementById('ilosc_osob').value);
+                
+                let dodatkiCena = 0;
+                dodatkiCena += document.getElementById('popcorn').checked ? 10 : 0;
+                dodatkiCena += document.getElementById('napoj').checked ? 11 : 0;
+                dodatkiCena += document.getElementById('chipsy').checked ? 12 : 0;
+                dodatkiCena += document.getElementById('okulary').checked ? 20 : 0;
+                dodatkiCena += document.getElementById('toaleta').checked ? 8 : 0;
+
+                const suma = (filmCena * dzienTygodnia * iloscOsob) + dodatkiCena;
+                document.getElementById('wynik').textContent = "Całkowita kwota: " + suma.toFixed(2) + " zł";
+            }
+        </script>
+    </article>
+    <aside>
+        <h2>Elementy dodatkowe</h2>
+        <iframe src="kontrolkiJS.html"></iframe>
+    </aside>
+    <footer>
+        Autor: Mikołaj Kwiatkowski<br> Numer albumu: 157640<br> Politechnika Poznańska<br><hr>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rysuj</title>
+
+    <style>
+        h1{
+            color:white
+        }
+        header, h2 {
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb); 
+            color: rgb(0, 0, 0);
+            text-align: center;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+   }
+        .nazwaKlasy{
+            background-color: black;
+            color: white;
+        }
+        canvas{
+            
+            background-color: white;
+            border: 1px dotted black;
+        }
+        input{
+            font-size: 20px;
+            margin: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(to right, #006400, #32cd32); 
+            color: white;
+            transition: background 0.3s, color 0.3s, transform 0.3s;
+        }
+        input:hover{
+            background: linear-gradient(to right, #32cd32, #006400); 
+            transform: scale(1.05);
+        }
+        input:focus{
+            background: linear-gradient(to right, #006400, #32cd32); 
+        }
+        .active {
+            background-color: #ff6347; 
+            color: white;
+            border: 2px solid #ff4500; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+ 
+    <link rel="stylesheet" href="style/styl.css"> 
+    <script>
+        let can, cont;
+        window.onload = function() {
+            can = document.querySelector("canvas");
+            cont = can.getContext("2d");
+        }
+
+        function initializeContext() {
+            if (cont == null) {
+                cont = can.getContext("2d");
+            }
+        }
+
+        function drawClapperboard() {
+            initializeContext();
+            clearCanvas();
+            const scaleFactor = 1.5; 
+            cont.save();
+            cont.scale(scaleFactor, scaleFactor);
+            const centerX = can.width / 2 / scaleFactor;
+            const centerY = can.height / 2 / scaleFactor;
+
+          
+            cont.fillStyle = "black";
+            cont.fillRect(centerX - 100, centerY, 200, 150);
+
+            
+            cont.fillStyle = "gray";
+            cont.fillRect(centerX - 100, centerY - 20, 200, 30);
+
+           
+            cont.strokeStyle = "white";
+            cont.lineWidth = 4;
+            for (let i = 0; i < 4; i++) {
+                cont.beginPath();
+                cont.moveTo(centerX - 100 + i * 50, centerY - 20);
+                cont.lineTo(centerX - 50 + i * 50, centerY + 10);
+                cont.stroke();
+            }
+            cont.restore();
+        }
+
+        function drawFilmReel() {
+            initializeContext();
+            clearCanvas();
+            const scaleFactor = 1.5; 
+            cont.save();
+            cont.scale(scaleFactor, scaleFactor);
+            const centerX = can.width / 2 / scaleFactor;
+            const centerY = can.height / 2 / scaleFactor;
+
+            
+            cont.fillStyle = "silver";
+            cont.beginPath();
+            cont.arc(centerX, centerY, 70, 0, 2 * Math.PI);
+            cont.fill();
+
+            
+            cont.strokeStyle = "black";
+            cont.lineWidth = 4;
+            const holeRadius = 15;
+            for (let i = 0; i < 6; i++) {
+                const angle = (i * Math.PI) / 3;
+                cont.beginPath();
+                cont.arc(centerX + 50 * Math.cos(angle), centerY + 50 * Math.sin(angle), holeRadius, 0, 2 * Math.PI);
+                cont.stroke();
+            }
+            cont.restore();
+        }
+
+        function drawProjector() {
+            initializeContext();
+            clearCanvas();
+            const scaleFactor = 1.5; 
+            cont.save();
+            cont.scale(scaleFactor, scaleFactor);
+            const centerX = can.width / 2 / scaleFactor;
+            const centerY = can.height / 2 / scaleFactor;
+
+            
+            cont.fillStyle = "black";
+            cont.fillRect(centerX - 50, centerY - 30, 100, 60);
+
+            
+            cont.fillStyle = "silver";
+            cont.beginPath();
+            cont.arc(centerX + 50, centerY, 20, 0, 2 * Math.PI);
+            cont.fill();
+
+            
+            cont.fillStyle = "black";
+            cont.fillRect(centerX - 10, centerY + 30, 20, 60);
+
+           
+            cont.fillStyle = "silver";
+            cont.beginPath();
+            cont.arc(centerX - 60, centerY - 40, 30, 0, 2 * Math.PI);
+            cont.fill();
+            cont.strokeStyle = "black";
+            cont.lineWidth = 4;
+            cont.beginPath();
+            cont.arc(centerX - 60, centerY - 40, 10, 0, 2 * Math.PI);
+            cont.stroke();
+            for (let i = 0; i < 6; i++) {
+                const angle = (i * Math.PI) / 3;
+                cont.beginPath();
+                cont.moveTo(centerX - 60, centerY - 40);
+                cont.lineTo(centerX - 60 + 20 * Math.cos(angle), centerY - 40 + 20 * Math.sin(angle));
+                cont.stroke();
+            }
+            cont.restore();
+        }
+
+        function drawPopcorn() {
+            initializeContext();
+            clearCanvas();
+            const scaleFactor = 1.5; 
+            cont.save();
+            cont.scale(scaleFactor, scaleFactor);
+            const centerX = can.width / 2 / scaleFactor;
+            const centerY = can.height / 2 / scaleFactor;
+
+           
+            cont.fillStyle = "red";
+            cont.fillRect(centerX - 25, centerY - 50, 50, 100);
+
+           
+            cont.fillStyle = "yellow";
+            for (let i = 0; i < 5; i++) {
+                cont.beginPath();
+                cont.arc(centerX + (Math.random() * 60 - 30), centerY - 50 - Math.random() * 30, 15, 0, 2 * Math.PI);
+                cont.fill();
+            }
+            for (let i = 0; i < 5; i++) {
+                cont.beginPath();
+                cont.arc(centerX + (Math.random() * 60 - 30), centerY - 50 - Math.random() * 30, 15, 0, 2 * Math.PI);
+                cont.fill();
+            }
+            cont.restore();
+        }
+
+        function clearCanvas() {
+            cont.clearRect(0, 0, can.width, can.height);
+        }
+    </script>
+</head>
+<body>
+    <header style="background-color: #ecec41; color: rgb(11, 37, 206);" >
+        <h1>Rysuj z naszym kinem
+            
+        </h1>
+    </header>
+    <nav>
+        <h2>Menu</h2>
+        <ul>
+            <li> <a href="index.html"> Strona główna </a> </li>
+            <li><a href="Najlepsze filmy prezentacja.html">Najlepsze filmy</a></li>
+            <li><a href="nowosci.html">Nowości</a></li>
+            <li><a href="repertuar.html">Repertuar</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="Promocje_konkursy.html">Promocje i konkursy</a></li>
+            <li><a href="przelicznik.html">Przelicznik godzin</a></li>
+            <li><a href="przelicznik2.html">Przekicznik cen</a></li>
+            <li><a href="ceny.html">Ceny</a></li>
+            <li><a href="Rysuj.html">Rysuj</a></li>
+            <li><a href="map.html">Plan kina</a></li>
+        </ul>
+    </nav>
+    <article>
+        <input type="button" value="Klaps filmowy" onclick="drawClapperboard()">
+        <input type="button" value="Rolka filmowa" onclick="drawFilmReel()">
+        <input type="button" value="Projektor" onclick="drawProjector()">
+        <input type="button" value="Popcorn" onclick="drawPopcorn()">
+        <input type="button" value="Czyść" onclick="clearCanvas()">
+        <canvas width="550" height="450"></canvas>
+    </article>
+    <aside>
+        <h2>Elementy dodatkowe</h2>
+        <iframe src="kontrolkiJS.html"></iframe>
+    </aside>
+    <footer>
+        Autor: Mikołaj Kwiatkowski<br> Numer albumu: 157640<br> Politechnika Poznańska<br><hr>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka.
+    </footer>
+</body>
+</html>

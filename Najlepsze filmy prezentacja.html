@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prezentacja</title>
+    <style>
+        header, h2 {
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb); 
+            color: rgb(0, 0, 0);
+            text-align: center;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+        }
+
+        
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: red;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        
+        .slide {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            height: 650px;
+            position: relative;
+        }
+
+        
+        .active-slide {
+            display: block;
+        }
+
+        
+        .slide-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide-text {
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+    </style>
+    <link rel="stylesheet" href="style/styl.css"> 
+    <script>
+        
+        let slideIndex = 1;
+    function showSlides(n) {
+        const slides = document.getElementsByClassName("slide");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+    }
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "ArrowLeft") {
+            plusSlides(-1);
+        } else if (event.key === "ArrowRight") {
+            plusSlides(1);
+        }
+    });
+
+    window.onload = function() {
+        showSlides(slideIndex);
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Najlepsze filmy w historii kinematografii!</h1>
+    </header>
+    <nav>
+        <h2>Menu</h2>
+        <ul>
+            <li> <a href="index.html"> Strona główna </a> </li>
+            <li><a href="Najlepsze filmy prezentacja.html">Najlepsze filmy</a></li>
+            <li><a href="nowosci.html">Nowości</a></li>
+            <li><a href="repertuar.html">Repertuar</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="Promocje_konkursy.html">Promocje i konkursy</a></li>
+            <li><a href="przelicznik.html">Przelicznik godzin</a></li>
+            <li><a href="przelicznik2.html">Przekicznik cen</a></li>
+            <li><a href="ceny.html">Ceny</a></li>
+            <li><a href="Rysuj.html">Rysuj</a></li>
+            <li><a href="map.html">Plan kina</a></li>
+        </ul>
+    </nav>
+    <article>
+        <h2>Prezentacja:<br> NAJLEPSZE FILMY WSZECHCZASÓW</h2>
+
+        <div class="slide-container">
+            <div class="slide active-slide" style="background-image: url('images/pulp.png');">
+                <div class="slide-text">
+                    <h3>Numer 5: <br> Pulp Fiction</h3>
+                    <p>Kultowy film Quentina Tarantino o splątanych losach bohaterów.</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/siedem.png');">
+                <div class="slide-text">
+                    <h3>Numer 4: <br> Siedem</h3>
+                    <p>Dwóch policjantów stara się złapać seryjnego mordercę.</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/czas.png');">
+                <div class="slide-text">
+                    <h3>Numer 3: <br> Czas Apokalipsy</h3>
+                    <p>Adaptacja opowiadania Josepha Conrada "Jądro ciemności". Przeniesiona w realia wojny wietnamskiej.</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/pewnego.png');">
+                <div class="slide-text">
+                    <h3>Numer 2: <br> Dawno temu w Ameryce</h3>
+                    <p>Ponad trzydzieści lat po okresie prohibicji były gangster powraca na Manhattan, by skonfrontować się ze swoją przeszłością. </p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('images/SKAZ.png');">
+                <div class="slide-text">
+                    <h3>Numer 1: <br> Skazani na Shawshank</h3>
+                    <p>Adaptacja opowiadania Stephena Kinga. Niesłusznie skazany na dożywocie bankier, stara się przetrwać w brutalnym, więziennym świecie.</p>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+    </article>
+    <aside>
+        <h2>Elementy dodatkowe</h2>
+        <iframe src="kontrolkiJS.html" frameborder="0"></iframe>
+    </aside>
+    <footer>
+        Autor: Mikołaj Kwiatkowski<br> Numer albumu: 157640<br> Politechnika Poznańska<br>
+        <hr>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka.
+    </footer>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz</title>
+    <link rel="stylesheet" href="style/styl.css"> 
+    <style>
+    header, h2 {
+        background: linear-gradient(to right, #a1c4fd, #c2e9fb); 
+        color: rgb(0, 0, 0);
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Zapisz się do Newslettera</h1>
+    </header>
+    <nav>
+        <h2>Menu</h2>
+        <ul>
+            <li> <a href="index.html"> Strona główna </a> </li>
+            <li><a href="Najlepsze filmy prezentacja.html">Najlepsze filmy</a></li>
+            <li><a href="nowosci.html">Nowości</a></li>
+            <li><a href="repertuar.html">Repertuar</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="Promocje_konkursy.html">Promocje i konkursy</a></li>
+            <li><a href="przelicznik.html">Przelicznik godzin</a></li>
+            <li><a href="przelicznik2.html">Przekicznik cen</a></li>
+            <li><a href="ceny.html">Ceny</a></li>
+            <li><a href="Rysuj.html">Rysuj</a></li>
+            <li><a href="map.html">Plan kina</a></li>
+
+        </ul>
+    </nav>
+    <article>
+        <h2>Zapisy</h2>
+        <form action="" method="post">
+            <p>
+                Aby zapisać się, wypełnij ten formularz. <br>
+                Pola oznaczone <em>*</em> są obowiązkowe!
+            </p>
+            <fieldset>
+                <legend>Dane kontaktowe</legend>
+                <label for="imie">Imie<em>*</em> </label>
+                <input type="text" name="imie" id="imie" required autofocus ><br>
+                <label for="nazw">Nazwisko<em>*</em> </label>
+                <input type="text" name="nazw" id="nazw" required><br>
+                <label for="tele">Telefon </label>
+                <input type="tel" name="tele" id="tele" required 
+                placeholder="(+48) xxx-xxx-xxx"><br>
+                <label for="mail">Mail<em>*</em> </label>
+                <input type="email" name="mail" id="mail" required 
+                placeholder="imie.nazwisko@example.com"><br>
+
+            </fieldset>
+            <fieldset><legend>Szczegółowe dane osobowe</legend>
+                <label for="pleć">Płeć</label>
+                <select name="pleć" id="pleć">
+                    <option value="kobieta">Kobieta</option>
+                    <option value="mężczyzna">Mężczyzna</option>
+                    <option value="nie podaję" selected>Nie podaję</option>
+                </select><br>
+                <label for="dataUr">Data urodzenia</label>
+                <input type="date" name="dataUr" id="dataUr"><br>
+            </fieldset>
+
+            <fieldset><legend>Ulubione Gatunki</legend>
+                <label for="dramat">Dramat</label>
+             <input type="checkbox" name="Gatunki" id="Dramat"><br>
+             <label for="dramat">Komedia</label>
+             <input type="checkbox" name="Gatunki" id="Komedia"><br>
+                <label for="Horror">Horror</label>
+                <input type="checkbox" name="Gatunki" id="Horror"><br>
+                <label for="thriller">Thriller</label>
+                <input type="checkbox" name="Gatunki" id="Thriller"><br>
+                <label for="Noir">Noir</label>
+                <input type="checkbox" name="Gatunki" id="Noir"><br>
+                <label for="Przygodowy">Przygodowy</label>
+                <input type="checkbox" name="Gatunki" id="Przygodowy"><br>
+                <label for="Historyczny">Historyczny</label>
+                <input type="checkbox" name="Gatunki" id="Historyczny"><br>
+            </fieldset>
+
+            <fieldset><legend>Gdzie wolisz oglądać filmy?</legend>
+                <label for="dom">W domu</label>
+             <input type="checkbox" name="gdzie" id="dom"><br>
+             <label for="kino">W kinie</label>
+             <input type="checkbox" name="gdzie" id="kino"><br>
+                <label for="inne">W innych miejscach</label>
+                <input type="checkbox" name="gdzie" id="inne"><br>
+            </fieldset>
+
+            <fieldset><legend>Który rodzaj tłumaczenia filmów preferujsz?</legend>
+                <label for="napis">Z napisami</label>
+             <input type="checkbox" name="rodzaj1" id="napis"><br>
+             <label for="dub">Z dubbingiem</label>
+             <input type="checkbox" name="rodzaj1" id="dub"><br>
+             <label for="lektor">Z lektorem</label>
+             <input type="checkbox" name="rodzaj1" id="lektor"><br>
+            </fieldset>
+
+            <fieldset><legend>Filmy w "2D" czy "3D"?</legend>
+                <label for="3D">3D</label>
+             <input type="checkbox" name="rodzaj2" id="3D"><br>
+             <label for="2D">2D</label>
+             <input type="checkbox" name="rodzaj2" id="2D"><br>
+            </fieldset>
+
+            <fieldset><legend>Masz jakieś pytania? Napisz do nas</legend>
+                <textarea name="pytanie" id="" cols="30" rows="10"
+                placeholder="Zadaj Pytanie"></textarea>
+                <br>
+                <input type="file" name="plik" id="">
+            </fieldset>
+
+            <input type="submit" value="Wyślij">
+            <input type="reset" value="Kasuj formularz">
+        </form>
+    </article>
+    <aside>
+        <h2>Elementy dodatkowe </h2>
+        <iframe src="kontrolkiJS.html" frameborder="0"></iframe>
+    </aside>
+    <footer>
+        Autor: Mikołaj Kwiatkowski<br> Numer albumu: 157640<br> Politechnika Poznańska<br><hr>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka.
+        
+    </footer>
+  
+    
+</body>
+</html>

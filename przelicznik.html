@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przelicznik</title>
+
+    <style>
+        header, h2 {
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb); 
+            color: rgb(0, 0, 0);
+            text-align: center;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+   }
+        .nazwaKlasy{
+            background-color: black;
+            color: white;
+        }
+        
+
+        header {
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+            color: #000;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        
+
+        article {
+          
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(to right, #64dd17, #00bfa5);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        select, input[type="time"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #convertedTime {
+            margin-top: 20px;
+            
+            border-radius: 5px;
+            background-color: rgb(41, 148, 25);
+            color: white;
+            text-align: center;
+        }
+    </style>
+
+    <link rel="stylesheet" href="style/styl.css"> 
+
+
+</head>
+<body>
+    <header style="color:white" >
+        <h1>Przelicznik czasu</h1>
+    </header>
+    <nav>
+        <h2>Menu</h2>
+        <ul>
+            <li> <a href="index.html"> Strona główna </a> </li>
+            <li><a href="Najlepsze filmy prezentacja.html">Najlepsze filmy</a></li>
+            <li><a href="nowosci.html">Nowości</a></li>
+            <li><a href="repertuar.html">Repertuar</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="Promocje_konkursy.html">Promocje i konkursy</a></li>
+            <li><a href="przelicznik.html">Przelicznik godzin</a></li>
+            <li><a href="przelicznik2.html">Przekicznik cen</a></li>
+            <li><a href="ceny.html">Ceny</a></li>
+            <li><a href="Rysuj.html">Rysuj</a></li>
+            <li><a href="map.html">Plan kina</a></li>
+
+        </ul>
+    </nav>
+    <article>
+        <h2>Przelicznik czasu</h2>
+<form id="timeConverter">
+    <label for="currentTime">Aktualna strefa czasowa:</label>
+    <select id="currentTime">
+        <option value="-12">UTC-12</option>
+        <option value="-11">UTC-11</option>
+        <option value="-10">UTC-10</option>
+        <option value="-9">UTC-9</option>
+        <option value="-8">UTC-8</option>
+        <option value="-7">UTC-7</option>
+        <option value="-6">UTC-6</option>
+        <option value="-5">UTC-5</option>
+        <option value="-4">UTC-4</option>
+        <option value="-3">UTC-3</option>
+        <option value="-2">UTC-2</option>
+        <option value="-1">UTC-1</option>
+        <option value="0">UTC</option>
+        <option value="1">UTC+1</option>
+        <option value="2">UTC+2</option>
+        <option value="3">UTC+3</option>
+        <option value="4">UTC+4</option>
+        <option value="5">UTC+5</option>
+        <option value="6">UTC+6</option>
+        <option value="7">UTC+7</option>
+        <option value="8">UTC+8</option>
+        <option value="9">UTC+9</option>
+        <option value="10">UTC+10</option>
+        <option value="11">UTC+11</option>
+        <option value="12">UTC+12</option>
+    </select><br><br>
+
+    <label for="filmTime">Godzina rozpoczęcia filmu:</label>
+    <input type="time" id="filmTime" name="filmTime"><br><br>
+
+    <label for="filmDuration">Czas trwania filmu (w minutach):</label>
+    <input type="number" id="filmDuration" name="filmDuration" min="0" step="1"><br><br>
+
+    <label for="targetTimezone">Strefa czasowa docelowa:</label>
+    <select id="targetTimezone">
+        <option value="-12">UTC-12</option>
+        <option value="-11">UTC-11</option>
+        <option value="-10">UTC-10</option>
+        <option value="-9">UTC-9</option>
+        <option value="-8">UTC-8</option>
+        <option value="-7">UTC-7</option>
+        <option value="-6">UTC-6</option>
+        <option value="-5">UTC-5</option>
+        <option value="-4">UTC-4</option>
+        <option value="-3">UTC-3</option>
+        <option value="-2">UTC-2</option>
+        <option value="-1">UTC-1</option>
+        <option value="0">UTC</option>
+        <option value="1">UTC+1</option>
+        <option value="2">UTC+2</option>
+        <option value="3">UTC+3</option>
+        <option value="4">UTC+4</option>
+        <option value="5">UTC+5</option>
+        <option value="6">UTC+6</option>
+        <option value="7">UTC+7</option>
+        <option value="8">UTC+8</option>
+        <option value="9">UTC+9</option>
+        <option value="10">UTC+10</option>
+        <option value="11">UTC+11</option>
+        <option value="12">UTC+12</option>
+    </select><br><br>
+
+    <button type="button" onclick="convertTime()">Przelicz</button>
+</form>
+        
+<p id="convertedTime"></p>
+
+<script>
+    
+    function convertTime() {
+            var currentTimezone = document.getElementById("currentTime").value;
+            var targetTimezone = document.getElementById("targetTimezone").value;
+            var filmTime = document.getElementById("filmTime").value;
+            var filmDuration = document.getElementById("filmDuration").value;
+            var messageElement = document.getElementById("convertedTime");
+
+            if (currentTimezone === "" || targetTimezone === "" || filmTime === "" || filmDuration === "" || parseInt(filmTime.split(':')[0]) < 1 || parseInt(filmDuration) < 1) {
+                alert("Musisz podać wszystkie wymagane dane oraz godzinę rozpoczęcia filmu i czas trwania większe od 0");
+                return;
+            }
+
+           
+
+    var filmDateTime = new Date();
+    filmDateTime.setUTCHours(parseInt(filmTime.substring(0,2)));
+    filmDateTime.setUTCMinutes(parseInt(filmTime.substring(3)));
+
+  
+    var filmDurationMs = filmDuration * 60 * 1000;
+
+  
+    var filmEndTime = new Date(filmDateTime.getTime() + filmDurationMs);
+
+  
+    var timeDifference = (targetTimezone - currentTimezone) * 60 * 60 * 1000;
+    var convertedStartTime = new Date(filmDateTime.getTime() + timeDifference);
+    var convertedEndTime = new Date(filmEndTime.getTime() + timeDifference);
+
+    
+    var startHours = convertedStartTime.getUTCHours().toString().padStart(2, '0');
+    var startMinutes = convertedStartTime.getUTCMinutes().toString().padStart(2, '0');
+    var endHours = convertedEndTime.getUTCHours().toString().padStart(2, '0');
+    var endMinutes = convertedEndTime.getUTCMinutes().toString().padStart(2, '0');
+
+    
+    document.getElementById("convertedTime").innerHTML = "Film rozpocznie się o " + startHours + ":" + startMinutes + " i zakończy o " + endHours + ":" + endMinutes;
+}
+</script>
+       
+    </article>
+    <aside>
+        <h2>Elementy dodatkowe</h2>
+        <iframe src="kontrolkiJS.html"></iframe>
+    </aside>
+    <footer>
+        Autor: Mikołaj Kwiatkowski<br> Numer albumu: 157640<br> Politechnika Poznańska<br><hr>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka.
+        
+    </footer>
+  
+    
+</body>
+</html>

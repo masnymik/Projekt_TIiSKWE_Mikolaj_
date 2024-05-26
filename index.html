@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona główna</title>
+
+    <style>
+       
+        
+   header, h2 {
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb); 
+            color: rgb(0, 0, 0);
+            text-align: center;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+   }
+    #logo img {
+            width: 150px; 
+            height: auto; 
+            padding: 1px;
+       
+        }
+    #img_browser {
+            text-align: center;
+            
+            width: 590px;
+            height: 475px;
+            margin: 0 auto;
+            display: none;
+        }
+        #image {
+            height: 400px;
+            width: 400px;
+            margin-top: 60px;
+            border: 5px solid #ddd;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+    .image-button {
+        padding: 15px 25px;
+        font-size: 17px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #4CAF50; 
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .image-button:hover {
+        background-color: #45a049; 
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
+    }
+
+    .image-button:active {
+        background-color: #3e8e41; 
+        box-shadow: 0 5px #666; 
+        transform: translateY(4px); 
+    }
+
+    .nav-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #2196F3; 
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 5px #999;
+        margin: 5px;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .nav-button:hover {
+        background-color: #0b7dda; 
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-button:active {
+        background-color: #0b7dda; 
+        box-shadow: 0 2px #666; 
+        transform: translateY(4px); 
+    }
+    </style>
+     <link rel="stylesheet" href="style/styl.css"> 
+    <script>
+        var ImgNo = 0;
+        var Tab_Img = ["images/Plakat1.png", "images/Plakat2.png", "images/Plakat3.png", "images/Plakat4.png", "images/Plakat5.png"];
+
+        function Start() {
+            document.getElementById("img_browser").style.display = "none";
+        }
+
+        function ShowHide() {
+    var Img_Brow = document.getElementById("img_browser");
+    if (Img_Brow.style.display === "block") {
+        Img_Brow.style.display = "none";
+    } else {
+        Img_Brow.style.display = "block";
+        ImgNo = 0;
+        document.getElementById("image").src = Tab_Img[ImgNo];
+    }
+}
+
+            
+        
+
+        function Next() {
+            if (ImgNo < Tab_Img.length - 1) {
+                ImgNo++;
+                document.getElementById("image").src = Tab_Img[ImgNo];
+            } else {
+                document.getElementById("image").src = Tab_Img[Tab_Img.length - 1];
+                ImgNo = Tab_Img.length - 1;
+            }
+        }
+
+        function Prev() {
+            if (ImgNo > 0) {
+                ImgNo--;
+                document.getElementById("image").src = Tab_Img[ImgNo];
+            } else {
+                document.getElementById("image").src = Tab_Img[0];
+                ImgNo = 0;
+            }
+        }
+
+        function First() {
+            document.getElementById("image").src = Tab_Img[0];
+            ImgNo = 0;
+        }
+
+        function Last() {
+            document.getElementById("image").src = Tab_Img[Tab_Img.length - 1];
+            ImgNo = Tab_Img.length - 1;
+        }
+    </script>
+
+</head>
+<body>
+    <header style="background-color: black; color: white;" >
+    
+        <h1> Witamy na stronie kina:
+            "Gradientowa kurtyna"
+        </h1>
+        <div id="logo">
+            <img src="images/logo.png" alt="Kino i Filmy Logo" />
+        </div>
+    </header>
+    <nav>
+        <h2>Menu</h2>
+        <ul>
+            <li> <a href="index.html"> Strona główna </a> </li>
+            <li><a href="Najlepsze filmy prezentacja.html">Najlepsze filmy</a></li>
+            <li><a href="nowosci.html">Nowości</a></li>
+            <li><a href="repertuar.html">Repertuar</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="Promocje_konkursy.html">Promocje i konkursy</a></li>
+            <li><a href="przelicznik.html">Przelicznik godzin</a></li>
+            <li><a href="przelicznik2.html">Przekicznik cen</a></li>
+            <li><a href="ceny.html">Ceny</a></li>
+            <li><a href="Rysuj.html">Rysuj</a></li>
+            <li><a href="map.html">Plan kina</a></li>
+
+        </ul>
+    </nav>
+    <article>
+
+    
+    <p>Oficjalna strona kina, mieszczącego się na ulicy Kinowej 6611 w Poznaniu. W naszym kinie obejrzysz same arcydzieła ze świata kinematografii!</p>
+    <br>
+    <p>Polecane seanse:</p>
+    <p style="text-align:center;">
+        <input type="button" onclick="ShowHide()" id="button" class="image-button" value="Kliknij tutaj żeby zobaczyć przeglądarkę najciekawszych seansów!" />
+        <div id="img_browser">
+        <img src="images/Plakat1.png" id="image" />
+        <br /><br />
+        <button onclick="First()" class="nav-button">|⇐<br />Pierwszy</button>
+        <button onclick="Prev()" class="nav-button">⇐<br />Poprzedni</button>
+        <button onclick="Next()" class="nav-button">⇒<br />Następny</button>
+        <button onclick="Last()" class="nav-button">⇒|<br />Ostatni</button>
+        </div>
+        </p>
+    </article>
+    <aside>
+        <h2>Elementy dodatkowe </h2>
+        <iframe src="kontrolkiJS.html"></iframe>
+    </aside>
+    <footer>
+        Autor: Mikołaj Kwiatkowski<br> Numer albumu: 157640<br> Politechnika Poznańska<br><hr>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka.
+        
+    </footer>
+  
+    
+</body>
+</html>

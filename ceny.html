@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceny</title>
+
+    <style>
+        header, h2 {
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+            color: rgb(0, 0, 0);
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            background: linear-gradient(to right, #56ab2f, #a8e063);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background: linear-gradient(to right, #56ab2f, #a8e063);
+            transform: scale(1.05);
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+    </style>
+    <link rel="stylesheet" href="style/styl.css"> 
+    <script src="js/tabela.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Cennik</h1>
+    </header>
+    <nav>
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="index.html">Strona główna</a></li>
+            <li><a href="Najlepsze filmy prezentacja.html">Najlepsze filmy</a></li>
+            <li><a href="nowosci.html">Nowości</a></li>
+            <li><a href="repertuar.html">Repertuar</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="Promocje_konkursy.html">Promocje i konkursy</a></li>
+            <li><a href="przelicznik.html">Przelicznik godzin</a></li>
+            <li><a href="przelicznik2.html">Przekicznik cen</a></li>
+            <li><a href="ceny.html">Ceny</a></li>
+            <li><a href="Rysuj.html">Rysuj</a></li>
+            <li><a href="map.html">Plan kina</a></li>
+        </ul>
+    </nav>
+    <article>
+        <h2>Ceny biletów oraz pozostałych artykułów</h2>
+
+        <input type="button" class="button" value="Wyświetl tabelę" onclick="wyswietl(tabJ)">
+        <table id="tabelaDanych"></table>
+
+    </article>
+    <aside>
+        <h2>Elementy dodatkowe</h2>
+        <iframe src="kontrolkiJS.html"></iframe>
+    </aside>
+    <footer>
+        Autor: Mikołaj Kwiatkowski<br> Numer albumu: 157640<br> Politechnika Poznańska<br>
+        <hr>
+        Projekt strony internetowej wykonany w ramach zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka.
+    </footer>
+</body>
+</html>

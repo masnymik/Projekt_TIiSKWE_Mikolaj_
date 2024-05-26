@@ -1,0 +1,193 @@
+
+legend {
+    font-weight: bold;
+    font-size: 24px;
+    text-shadow: 3px 3px 5px rgba(72, 139, 4, 0.8);
+    color: white;
+    background: linear-gradient(45deg, rgb(72, 139, 4), rgb(34, 73, 2));
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+fieldset {
+    border-color: rgb(72, 139, 4);
+    border-style: dotted;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(72, 139, 4, 0.5);
+    padding: 20px;
+}
+
+label {
+    display: inline-block;
+    width: 120px;
+    margin: 5px 5px 5px 35px;
+    background: linear-gradient(45deg, rgb(72, 139, 4), rgb(34, 73, 2));
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease-in-out;
+}
+
+label:hover {
+    background: linear-gradient(45deg, rgb(34, 73, 2), rgb(72, 139, 4));
+}
+
+form {
+    width: 450px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 1024px;
+    margin: auto;
+}
+
+body > header {
+    width: 1024px;
+    height: 170px;
+    background: linear-gradient(to right, #0088FF, #00FF88);
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    border: 5px solid #b3c1ff; 
+}
+
+nav, article, aside {
+    display: block;
+    height: 800px;
+    float: left;
+}
+
+nav, aside {
+    width: 210px;
+    background: linear-gradient(to bottom, #0088FF, #00FF88);
+    color: white;
+}
+
+article {
+    width: 604px;
+    background: radial-gradient(circle at center, #b3c1ff 20%, #a3d8ff 60%, #b9f2ff 80%);
+    padding: 15px;
+    overflow: auto;
+    color: black;
+    text-align: center;
+}
+
+body > footer {
+    background: linear-gradient(to right, #0088FF, #00FF88);
+    color: white;
+    padding: 5px 10px 10px 30px;
+    border: 5px solid #b3c1ff;
+    clear: both;
+    text-align: center;
+}
+
+body > footer hr {
+    border: 2px dotted white;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+nav ul, nav ul li {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    width: 190px;
+    background: linear-gradient(to bottom, #b3c1ff, #8ed8a3);
+    padding: 2px 2px 2px 1px;
+    border: 4px double white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+nav ul li {
+    border-bottom: 1px solid white;
+}
+
+nav ul a:link, nav ul a:visited {
+    background-color: #27c;
+    width: 166px;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+    color: #def;
+    border-radius: 8px;
+    margin: 5px auto;
+}
+
+nav ul a:hover {
+    background-color: black;
+    border-left: 20px solid rgb(36, 255, 3);
+}
+
+
+table {
+    width: 80%;
+    margin: 25px auto;
+    border-collapse: collapse;
+    font-family: 'Book Antiqua', serif;
+}
+
+th {
+    border: 1px solid gray;
+    color: green;
+    font-style: comic;
+    background-color: #f0f0f0;
+    padding: 5px;
+}
+
+td {
+    border: 1px solid #333;
+    color: #333;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+}
+
+table, tr, td, th {
+    border-spacing: 0px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e9e9e9;
+}
+
+tbody tr:hover {
+    background-color: #d1e7dd;
+}
+
+table {
+    border: 2px solid #333;
+    border-radius: 5px;
+    overflow: hidden;
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontrolki</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        .btn {
+            width: 180px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 10px 5px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:active {
+            background-color: #3e8e41;
+        }
+
+        input[type="text"] {
+            font-family: monospace;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: calc(100% - 22px);
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="button"]:active {
+            background-color: #3e8e41;
+        }
+
+        .info {
+            margin-top: 20px;
+        }
+    </style>
+    <script src="js/zegar.js"></script>
+</head>
+<body onload="zegar(); startStoper(); initPage();">
+    
+
+    <div class="btn" id="btnStart">Start</div>
+    <div class="btn" id="btnStop">Stop</div>
+
+    <input type="text" id="txtRtext" value="Same najlepsze produkcje - TYLKO U NAS!!!">
+
+    <hr>
+    <h3>Zegar</h3>    
+    Aktualny czas: <input type="text" id="zegarTXT">
+    Czas spędzony na podstronie: <input type="text" id="stoperTXT">
+    <input type="button" value="Stop" onclick="stopStoper()">
+    <input type="button" value="Start" onclick="startStoper()">
+
+    <div class="info">
+        <p>Aktualna data: <span id="currentDate"></span></p>
+        <p>Liczba odwiedzin: <span id="visitCount"></span></p>
+        <p>Czas spędzony na stronie w sekundach:<br> <span id="timeSpent"></span> </p>
+    </div>
+
+    <script src="js/podmienKlase.js"></script>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('pl-PL', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('currentDate').innerText = dateStr;
+        }
+
+        function initPage() {
+            
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+
+            
+            if (!sessionStorage.getItem('visitCountUpdated')) {
+                if (localStorage.getItem('visitCount')) {
+                    let visitCount = parseInt(localStorage.getItem('visitCount'), 10) + 1;
+                    localStorage.setItem('visitCount', visitCount); 
+                } else {
+                    localStorage.setItem('visitCount', 1);
+                }
+                sessionStorage.setItem('visitCountUpdated', 'true');
+            }
+            document.getElementById('visitCount').innerText = localStorage.getItem('visitCount');
+
+            if (!sessionStorage.getItem('startTime')) {
+                sessionStorage.setItem('startTime', Date.now());
+            }
+            updateTimeSpent();
+            setInterval(updateTimeSpent, 1000);
+        }
+
+        function updateTimeSpent() {
+            const startTime = parseInt(sessionStorage.getItem('startTime'), 10);
+            const currentTime = Date.now();
+            const timeSpent = Math.floor((currentTime - startTime) / 1000);
+            document.getElementById('timeSpent').innerText = timeSpent;
+        }
+    </script>
+</body>
+</html>
